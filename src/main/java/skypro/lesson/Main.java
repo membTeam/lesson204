@@ -15,6 +15,7 @@ public class Main {
                 new Authorisation("any_Login","secren_passord","secren_passord"),
                 new Authorisation("any_LoginNext","secret_passord","secren_passord"),
                 new Authorisation("any_Login159","secret_passord","secret_passord"),
+                new Authorisation("any_ExtendedLogin1590","secret_passord","secret_passord"),
                 new Authorisation("my login","secren","secren")
         );
     }

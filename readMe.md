@@ -25,11 +25,12 @@ static {
                 new Authorisation("any_Login","secren_passord","secren_passord"),
                 new Authorisation("any_LoginNext","secret_passord","secren_passord"),
                 new Authorisation("any_Login159","secret_passord","secret_passord"),
+                new Authorisation("any_ExtendedLogin1590","secret_passord","secret_passord"),
                 new Authorisation("my login","secren","secren")
         );
     }
 ```
-~~~~
+
 # Данные из консоли
 ```dtd
 Домашнее задание: Работа с исключениями
@@ -43,9 +44,10 @@ verifing: any_Login
 verifing: any_LoginNext
 	Пароли не совпадают
 verifing: any_Login159
+verifing: any_ExtendedLogin1590
+	длина лонига не менее 5 и не более 20
 verifing: my login
 	Логин только латинские символы, цифры и знак _
 
 Process finished with exit code 0
-
 ```
