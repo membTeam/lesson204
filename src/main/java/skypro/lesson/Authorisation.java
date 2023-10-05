@@ -23,18 +23,18 @@ public class Authorisation {
         return confirmPassword;
     }
 
+    private static final String matches = "[a-zA-Z0-9_]+";
     public static void verifyData(Authorisation authorisation) throws WrongLoginException, WrongPasswordException {
 
-        String matches = "[a-zA-Z0-9_]+";
-        var login = authorisation.getLogin();
-        var passowrd = authorisation.getPassword();
-        var confirmPassword = authorisation.getConfirmPassword();
+        final String login = authorisation.getLogin();
+        final String passowrd = authorisation.getPassword();
+        final String confirmPassword = authorisation.getConfirmPassword();
 
         var errLength = "длина %s не менее 5 и не более 20";
         var err = "%s только латинские символы, цифры и знак _";
 
         if (login.length() < 5 || login.length() > 20 ){
-            throw new WrongLoginException(String.format(errLength, "лонига"));
+            throw new WrongLoginException(String.format(errLength, "логина"));
         }
 
         if (passowrd.length() < 5 || passowrd.length() > 20 ) {
