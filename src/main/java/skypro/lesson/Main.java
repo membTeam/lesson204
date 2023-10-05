@@ -28,8 +28,7 @@ public class Main {
                 lsAuthorisation.add(authorization);
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
-            System.out.println(System.getProperty("user.dir"));
+            System.out.println(e.getMessage());            
         }
     }
 
