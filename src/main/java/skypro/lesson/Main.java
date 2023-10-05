@@ -1,6 +1,9 @@
 package skypro.lesson;
 
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -8,15 +11,25 @@ public class Main {
     private static final List<Authorisation> lsAuthorisation;
 
     static {
-        lsAuthorisation = Arrays.asList(
-                new Authorisation("Логин","password","password"),
-                new Authorisation("login_Мой","password","password"),
-                new Authorisation("login","passord","passord"),
-                new Authorisation("any_Login","secren_passord","secren_passord"),
-                new Authorisation("any_LoginNext","secret_passord","secren_passord"),
-                new Authorisation("any_Login159","secret_passord","secret_passord"),
-                new Authorisation("my login","secren","secren")
-        );
+        lsAuthorisation = new ArrayList<>();
+        final String COMMA_DELIMITER = ";";
+
+        try (var br = new BufferedReader(new FileReader("csvData/authorisation.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+
+                var login = values[0];
+                var password = values[1];
+                var confirmPassword = values[2];
+
+                var authorization = new Authorisation(login, password, confirmPassword);
+
+                lsAuthorisation.add(authorization);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());            
+        }
     }
 
     public static void main(String[] args) {
